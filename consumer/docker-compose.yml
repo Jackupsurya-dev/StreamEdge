@@ -41,8 +41,6 @@ services:
         condition: service_healthy
       redis:
         condition: service_started
-    volumes:
-      - ./logs.log:/app/logs.log
     environment:
       - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/  # ✅ Use shared RabbitMQ
       - REDIS_ADDRESS=redis:6379
