@@ -102,7 +102,7 @@ Set up environment variables (create a `config.json` file in the project directo
 Navigate to the `producer` directory and start the service:
 
    ```sh
-   cd path/to/producer
+   cd /producer
 
    # creating a shared network
    docker network create rabbitmq_network
@@ -186,7 +186,7 @@ docker stop <container_id> && docker rm <container_id>
 1. navigate to the consumer directory:
 
 ```sh
-cd your-repo/consumer
+cd /consumer
 ```
 
 2. Install dependencies:
@@ -239,7 +239,7 @@ Set up environment variables (create a `config.json` file in the project directo
 Navigate to the `consumer` directory and start the service:
 
 ```sh
-cd path/to/consumer
+cd /consumer
 
 docker-compose up -d --build
 ```
@@ -347,14 +347,13 @@ The React app will be available at `http://localhost:3000`.
 
 1. **Build the Docker Image:**
    ```sh
-   cd path/to/user-stream-ui
+   cd /user-stream-ui
 
    docker-compose build
    ```
 
 2. **Run the Container:**
    ```sh
-   cd path/to/user-stream-ui
 
    docker-compose up -d
    ```
