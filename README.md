@@ -20,7 +20,7 @@ StreamEdge is a real-time data streaming system that processes user data efficie
 ### 1️⃣ Clone the Repository
 ```sh
 git clone https://github.com/Jackupsurya-dev/StreamEdge.git
-cd streamedge
+cd StreamEdge
 ```
 
 ## API Documentation 
@@ -88,6 +88,7 @@ sudo apt update && sudo apt install -y golang
    go run main.go
    ```
 ---
+### (or)
 ## Running the Producer Service with Docker
 
 Set up environment variables (create a `config.json` file in the project directory and add the below variables into it):
@@ -147,7 +148,6 @@ docker system prune -a --volumes
 
 - The Producer service publishes messages to RabbitMQ.
 - Ensure RabbitMQ is running before testing the Producer API.
-
 
 ```
 ```
@@ -219,6 +219,7 @@ go run main.go
 ```
 
 ---
+### (or)
 ## Running the Consumer Service with Docker
 
 Set up environment variables (create a `config.json` file in the project directory add the below variables into it):
@@ -249,39 +250,6 @@ Verify that the service is running:
 ```sh
 docker ps
 ```
-
----
-## Creating the Users Table
-
-After the services are running, create the `users` table in the **PostgreSQL** database.
-
-1. Connect to PostgreSQL inside the container:
-
-```sh
-docker exec -it postgres-consumer psql -U postgres -d testdb
-```
-
-2. Run the following SQL command:
-
-```sql
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    first_name VARCHAR(255),
-    last_name VARCHAR(255),
-    email_address VARCHAR(255) NOT NULL,
-    created_at VARCHAR(255),
-    merged_at VARCHAR(255),
-    deleted_at VARCHAR(255),
-    parent_user_id FLOAT
-);
-```
-
-3. Exit the PostgreSQL shell:
-
-```sh
-\q
-```
-
 ---
 
 ## Stopping and Removing the Consumer Container
@@ -312,8 +280,39 @@ docker system prune -a --volumes
   docker logs postgres-consumer
   ```
 
+---
+
+## Creating the Users Table
+
+After the services are running, create the `users` table in the **PostgreSQL** database.
+
+1. Connect to PostgreSQL inside the container:
+
+```sh
+docker exec -it postgres psql -U postgres -d testdb
 ```
+
+2. Run the following SQL command:
+
+```sql
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    email_address VARCHAR(255) NOT NULL,
+    created_at VARCHAR(255),
+    merged_at VARCHAR(255),
+    deleted_at VARCHAR(255),
+    parent_user_id FLOAT
+);
 ```
+
+3. Exit the PostgreSQL shell:
+
+```sh
+\q
+```
+---
 
 # React App Dockerization Guide
 
@@ -342,7 +341,9 @@ Ensure you have the following installed on your system:
 
 The React app will be available at `http://localhost:3000`.
 
+---
 
+### (or)
 ## Building and Running the Docker Container
 
 1. **Build the Docker Image:**
